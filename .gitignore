@@ -1,0 +1,7 @@
+logs/
+crash-reports/
+stall-reports/
+libraries/
+.fabric/
+usercache.json
+world/

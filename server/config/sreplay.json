@@ -1,0 +1,662 @@
+{
+  "savePath": "replay_recordings",
+  "serverName": "localhost",
+  "serverListenAddress": "0.0.0.0",
+  "serverHostName": "localhost",
+  "serverPort": 12346,
+  "downloadTimeout": 60000,
+  "sizeLimit": -1,
+  "timeLimit": -1,
+  "itemsPerPage": 20,
+  "autoReconnect": true,
+  "debugCrash": false,
+  "playerNamePattern": "^cam_.*$",
+  "formats": {
+    "playerNotFound": {
+      "color": "red",
+      "text": "[SReplay] Player $1 not found (or not a video bot)"
+    },
+    "recordFileExists": {
+      "color": "red",
+      "text": "[SReplay] Video file $1 already exists"
+    },
+    "reloadedConfig": {
+      "text": "[SReplay] config loaded"
+    },
+    "failedToReloadConfig": {
+      "color": "red",
+      "text": "[SReplay] Failed to load configuration: $1"
+    },
+    "nothingToConfirm": {
+      "color": "red",
+      "text": "[SReplay] No pending actions"
+    },
+    "nothingToCancel": {
+      "color": "red",
+      "text": "[SReplay] No operations to cancel"
+    },
+    "confirmingHint": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "/sreplayer confirm $1"
+        },
+        {
+          "text": "To confirm this action"
+        }
+      ],
+      "text": "[SReplay] use"
+    },
+    "deletedRecordingFile": {
+      "text": "[SReplay] $1: Deleted video file $2"
+    },
+    "failedToDeleteRecordingFile": {
+      "color": "red",
+      "text": "[SReplay] $1: Failed to delete video file $2: $3"
+    },
+    "operationCancelled": {
+      "text": "[SReplay] Operation cancelled"
+    },
+    "incorrectConfirmationCode": {
+      "color": "red",
+      "text": "[SReplay] Confirmation code does not match"
+    },
+    "fileNotFound": {
+      "color": "red",
+      "text": "[SReplay] file $1 does not exist"
+    },
+    "teleportedBotToYou": {
+      "extra": [
+        {
+          "color": "dark_gray",
+          "text": "$1"
+        },
+        {
+          "text": "Send to $2"
+        }
+      ],
+      "text": "[SReplay] has put"
+    },
+    "invalidPlayerName": {
+      "color": "red",
+      "text": "[SReplay] illegal player name"
+    },
+    "playerNameTooLong": {
+      "color": "red",
+      "text": "[SReplay] Player name length cannot exceed 16 (otherwise it will be chunk ban!)"
+    },
+    "playerIsLoggedIn": {
+      "color": "red",
+      "text": "[SReplay] Player $1 logged in"
+    },
+    "failedToStartRecording": {
+      "color": "red",
+      "text": "[SReplay] Recording failed: $1"
+    },
+    "recordingFileListHead": {
+      "text": "[SReplay] Recording file list:"
+    },
+    "recordingFileItem": {
+      "color": "green",
+      "extra": [
+        {
+          "color": "blue",
+          "clickEvent": {
+            "action": "run_command",
+            "value": "/sreplay get $1"
+          },
+          "hoverEvent": {
+            "action": "show_text",
+            "contents": {
+              "italic": true,
+              "color": "gray",
+              "text": "Click to generate download link"
+            }
+          },
+          "text": "[download]"
+        },
+        {
+          "color": "red",
+          "clickEvent": {
+            "action": "run_command",
+            "value": "/sreplay delete $1"
+          },
+          "hoverEvent": {
+            "action": "show_text",
+            "contents": {
+              "italic": true,
+              "color": "gray",
+              "text": "Click to delete"
+            }
+          },
+          "text": "[delete]"
+        }
+      ],
+      "text": "- $1($2M) "
+    },
+    "savingRecordingFile": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        },
+        {
+          "text": "Video file of"
+        }
+      ],
+      "text": "[SReplay] Saving"
+    },
+    "savedRecordingFile": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        },
+        {
+          "text": "Video file of"
+        },
+        {
+          "color": "green",
+          "text": "$2"
+        }
+      ],
+      "text": "[SReplay] Saved"
+    },
+    "failedToSaveRecordingFile": {
+      "color": "red",
+      "text": "[SReplay] Failed to save video file of $1: $2"
+    },
+    "startedRecording": {
+      "text": "[SReplay] $1 has started recording"
+    },
+    "aboutToDeleteRecording": {
+      "text": "[SReplay] will delete video file $1"
+    },
+    "recordingFile": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        }
+      ],
+      "text": "[SReplay] $1 is recording"
+    },
+    "sizeLimitTooSmall": {
+      "color": "red",
+      "text": "[SReplay] size limit cannot be less than 10M"
+    },
+    "timeLimitTooSmall": {
+      "color": "red",
+      "text": "[SReplay] time limit cannot be less than 10s"
+    },
+    "recordingPaused": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        },
+        {
+          "text": "Recording paused"
+        }
+      ],
+      "text": "[SReplay] $1: "
+    },
+    "recordingResumed": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        },
+        {
+          "text": "Recording resumed"
+        }
+      ],
+      "text": "[SReplay] $1: "
+    },
+    "markerAdded": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        },
+        {
+          "text": "Add markup"
+        },
+        {
+          "italic": true,
+          "color": "green",
+          "text": "$3"
+        }
+      ],
+      "text": "[SReplay] $1: already in"
+    },
+    "markerRemoved": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        },
+        {
+          "text": "Delete Marker"
+        },
+        {
+          "italic": true,
+          "color": "green",
+          "text": "$3"
+        }
+      ],
+      "text": "[SReplay] $1: already in"
+    },
+    "invalidMarkerId": {
+      "color": "red",
+      "text": "[SReplay] Invalid token sequence number"
+    },
+    "markerListTitle": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$1"
+        },
+        {
+          "text": "All tags of :"
+        }
+      ],
+      "text": "[SReplay] "
+    },
+    "markerListItem": {
+      "extra": [
+        {
+          "color": "green",
+          "clickEvent": {
+            "action": "run_command",
+            "value": "/sreplay player $1 marker remove $2"
+          },
+          "text": "[delete]"
+        }
+      ],
+      "text": "- [$2] $3"
+    },
+    "renamedFile": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "$2"
+        },
+        {
+          "text": "The filename is set to"
+        },
+        {
+          "color": "green",
+          "text": "$3"
+        }
+      ],
+      "text": "[SReplay] $1: Reposted"
+    },
+    "serverStarted": {
+      "text": "[SReplay] Download server started"
+    },
+    "serverStartFailed": {
+      "color": "red",
+      "text": "[SReplay] Download server failed to start: $1"
+    },
+    "serverStopped": {
+      "text": "[SReplay] Download server stopped"
+    },
+    "serverStopFailed": {
+      "text": "[SReplay] Download server stop failed: $1"
+    },
+    "downloadUrl": {
+      "extra": [
+        {
+          "underlined": true,
+          "clickEvent": {
+            "action": "open_url",
+            "value": "$1"
+          },
+          "hoverEvent": {
+            "action": "show_text",
+            "contents": {
+              "italic": true,
+              "color": "gray",
+              "text": "Click to download"
+            }
+          },
+          "text": "$1"
+        }
+      ],
+      "text": "[SReplay] download link:"
+    },
+    "autoPaused": {
+      "text": "[SReplay] $1: No player nearby, pause recording"
+    },
+    "autoResumed": {
+      "text": "[SReplay] $1: There is a player nearby, continue recording"
+    },
+    "setParam": {
+      "extra": [
+        {
+          "color": "gold",
+          "text": "$2"
+        },
+        {
+          "text": "of"
+        },
+        {
+          "color": "green",
+          "text": "$3"
+        },
+        {
+          "text": "The value is set to"
+        },
+        {
+          "color": "green",
+          "text": "$4"
+        }
+      ],
+      "text": "[SReplay] $1: will"
+    },
+    "getParam": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        },
+        {
+          "text": "of"
+        },
+        {
+          "color": "green",
+          "text": "$2"
+        },
+        {
+          "text": "value"
+        },
+        {
+          "color": "green",
+          "text": "$3"
+        }
+      ],
+      "text": "[SReplay]"
+    },
+    "positiveParam": {
+      "color": "red",
+      "text": "[SReplay] This parameter must be a positive integer"
+    },
+    "nonNegativeOrMinusOne": {
+      "color": "red",
+      "text": "[SReplay] This parameter must be -1 or non-negative"
+    },
+    "invalidEnum": {
+      "color": "red",
+      "text": "[SReplay] invalid value"
+    },
+    "paginationFooter": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "($1/$2)"
+        },
+        {
+          "color": "white",
+          "text": "Page"
+        }
+      ],
+      "text": "Article"
+    },
+    "invalidPageNum": {
+      "color": "red",
+      "text": "[SReplay] Invalid page number"
+    },
+    "noSuchParam": {
+      "color": "red",
+      "text": "[SReplay] does not have this parameter"
+    },
+    "paramHelp": {
+      "color": "yellow",
+      "extra": [
+        {
+          "color": "green",
+          "text": "$2"
+        }
+      ],
+      "text": "$1: "
+    },
+    "botLocation": {
+      "color": "white",
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        },
+        {
+          "color": "white",
+          "text": "At"
+        },
+        {
+          "color": "white",
+          "text": "[x: $2, y: $3, z: $4, dim: $5]"
+        }
+      ],
+      "text": "[SReplay] "
+    },
+    "saveRecordingProgressBarTitle": {
+      "color": "white",
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        }
+      ],
+      "text": "Save video file"
+    },
+    "killConfirm": {
+      "extra": [
+        {
+          "color": "green",
+          "text": "$1"
+        },
+        {
+          "color": "white",
+          "text": "The recording?"
+        }
+      ],
+      "text": "[SReplay] sure you want to stop"
+    },
+    "help": [
+      {
+        "color": "yellow",
+        "text": "\u003d\u003d\u003d\u003d\u003d\u003d SReplay usage \u003d\u003d\u003d\u003d\u003d\u003d"
+      },
+      {
+        "color": "green",
+        "text": "/sreplay player \u003cplayername\u003e ..."
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Summon a video dummy and start recording"
+          }
+        ],
+        "text": "- spawn "
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Kick off the specified video dummy and save the video file"
+          }
+        ],
+        "text": "- kill "
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Kick off the dummy first, save the file, and start a new round of recording in place"
+          }
+        ],
+        "text": "- respawn "
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Get or set the video file name"
+          }
+        ],
+        "text": "-name [filename]"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Teleport a video dummy to your location"
+          }
+        ],
+        "text": "- tp"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Pause recording"
+          }
+        ],
+        "text": "- pause"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Continue recording"
+          }
+        ],
+        "text": "- resume"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Show dummy position"
+          }
+        ],
+        "text": "- locate"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "List all added tags"
+          }
+        ],
+        "text": "- marker list [page number]"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Add a marker at the current position"
+          }
+        ],
+        "text": "- marker add [markername]"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Remove a marker"
+          }
+        ],
+        "text": "- marker remove [marker number]"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Set or get the value of the corresponding recording option, please use to view the details"
+          },
+          {
+            "color": "green",
+            "text": "/sreplay help set \u003cOption name\u003e"
+          }
+        ],
+        "text": "-set \u003coptionname\u003e [parameter value]"
+      },
+      {
+        "color": "white",
+        "text": ""
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "List all recorded files"
+          }
+        ],
+        "text": "/sreplay list [page number]"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Delete the given video file. Need to use"
+          },
+          {
+            "color": "green",
+            "text": "/sreplay confirm \u003cConfirmation code\u003e"
+          },
+          {
+            "color": "white",
+            "text": "Come to confirm"
+          }
+        ],
+        "text": "/sreplay delete \u003cfilename\u003e"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Reload configuration file"
+          }
+        ],
+        "text": "/sreplay reload"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Start/stop the http server for downloading video files"
+          }
+        ],
+        "text": "/sreplay server \u003cstart|stop\u003e"
+      },
+      {
+        "color": "green",
+        "extra": [
+          {
+            "color": "white",
+            "text": "Download the specified video file. This command will return a temporary link for downloading the file."
+          }
+        ],
+        "text": "/sreplay get \u003cFilename\u003e"
+      }
+    ]
+  }
+}
